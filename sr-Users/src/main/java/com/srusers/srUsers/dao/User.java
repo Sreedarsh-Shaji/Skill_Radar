@@ -1,5 +1,6 @@
 package com.srusers.srUsers.dao;
 
+import lombok.AllArgsConstructor;
 import lombok.Data;
 
 import javax.persistence.Entity;
@@ -8,13 +9,13 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import java.util.UUID;
 
-@Entity
 @Data
+@AllArgsConstructor
 public class User {
 
     @Id
     @GeneratedValue( strategy = GenerationType.AUTO )
-    UUID id;
+    int id;
 
     String name;
 
