@@ -1,6 +1,7 @@
-package com.srusers.srUsers.services;
+package com.srlocator.srLocator.services;
 
-import com.srusers.srUsers.dao.User;
+
+import com.srlocator.srLocator.dao.User;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.PostConstruct;
