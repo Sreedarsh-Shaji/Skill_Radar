@@ -8,6 +8,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.client.RestTemplate;
+import org.springframework.web.reactive.function.client.WebClient;
 
 @RestController
 @RequestMapping( value = "/users/v1")
@@ -18,6 +19,9 @@ public class UserController {
 
     @Autowired
     RestTemplate template;
+
+    @Autowired
+    WebClient.Builder builder;
 
     /* Returns controller info */
     @GetMapping("/info")
@@ -46,7 +50,13 @@ public class UserController {
     @GetMapping("/get-latest-loc/{id}")
     public ResponseEntity<Object> getLatestUserLocation(@PathVariable("id") int id)
     {
-        return new ResponseEntity<Object>(template.getForObject("http://localhost:8093/location/v1/user-location/"+id, Location.class), HttpStatus.OK);
+        //return new ResponseEntity<Object>(template.getForObject("http://localhost:8093/location/v1/user-location/"+id, Location.class), HttpStatus.OK);
+
+        return new ResponseEntity<Object>(
+                builder.build().get().uri("http://localhost:8093/location/v1/user-location/"+id)
+                        .retrieve().bodyToMono(Location.class).block()
+                , HttpStatus.OK );
+
     }
 
     /* Adds a new dummy user into the system */

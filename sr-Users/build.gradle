@@ -16,6 +16,9 @@ dependencies {
 	implementation 'org.springframework.boot:spring-boot-starter'
 	testImplementation 'org.springframework.boot:spring-boot-starter-test'
 	implementation 'org.springframework.boot:spring-boot-starter-web:2.5.3'
+
+	implementation 'org.springframework.boot:spring-boot-starter-webflux:2.5.3'
+
 }
 
 test {
