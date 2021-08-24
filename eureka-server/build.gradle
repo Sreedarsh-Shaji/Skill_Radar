@@ -20,10 +20,10 @@ dependencies {
 	implementation 'org.springframework.cloud:spring-cloud-starter-netflix-eureka-server'
 	testImplementation 'org.springframework.boot:spring-boot-starter-test'
 
-	implementation 'javax.xml.bind:jaxb-api:2.3.0'
-	implementation 'com.sun.xml.bind:jaxb-impl:2.3.0'
-	implementation 'org.glassfish.jaxb:jaxb-runtime:2.3.0'
-
+	implementation 'javax.xml.bind:jaxb-api:2.3.1'
+	implementation 'com.sun.xml.bind:jaxb-impl:2.3.1'
+	implementation 'org.glassfish.jaxb:jaxb-runtime:2.3.1'
+	implementation 'javax.activation:activation:1.1.1'
 }
 
 dependencyManagement {

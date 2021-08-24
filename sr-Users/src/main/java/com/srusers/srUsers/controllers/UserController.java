@@ -53,7 +53,7 @@ public class UserController {
         //return new ResponseEntity<Object>(template.getForObject("http://localhost:8093/location/v1/user-location/"+id, Location.class), HttpStatus.OK);
 
         return new ResponseEntity<Object>(
-                builder.build().get().uri("http://localhost:8093/location/v1/user-location/"+id)
+                builder.build().get().uri("http://LOCATION-MICRO-SERVICE/location/v1/user-location/"+id)
                         .retrieve().bodyToMono(Location.class).block()
                 , HttpStatus.OK );
 
