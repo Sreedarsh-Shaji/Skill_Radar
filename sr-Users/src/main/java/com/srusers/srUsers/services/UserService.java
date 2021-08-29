@@ -1,17 +1,24 @@
 package com.srusers.srUsers.services;
 
 import com.srusers.srUsers.dao.User;
+import com.srusers.srUsers.repository.UserRepository;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.PostConstruct;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
+import java.util.stream.Stream;
 
 @Service
 public class UserService {
 
 
     private List<User> users= new ArrayList<User>();
+
+    @Autowired
+    UserRepository repository;
 
     /* get all users */
     public List<User> getAllUsers()
@@ -48,7 +55,8 @@ public class UserService {
         return isValidUser;
     }
 
-    /* Adds a new user */
+    /* Adds a new dummy user */
+    @Deprecated
     public boolean addNewUserDummy(User newUser)
     {
         /* replace with streams */
@@ -62,6 +70,22 @@ public class UserService {
         users.add(newUser);
         return true;
     }
+
+    /* Adds a new user into the repo */
+    public boolean addNewUser(User inputUser)
+    {
+
+        try
+        {
+            repository.saveAll(Stream.of(inputUser).collect(Collectors.toList()));
+            return true;
+        }
+        catch (Exception ex)
+        {
+            return false;
+        }
+    }
+
 
     /*
     Populates the list with some dummy data

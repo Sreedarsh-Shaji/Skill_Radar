@@ -2,12 +2,25 @@ package com.srusers.srUsers.dao;
 /*
 * Optimize with lombok and jpa
 * */
+
+import org.springframework.data.annotation.Id;
+import org.springframework.data.couchbase.core.mapping.Document;
+import org.springframework.data.couchbase.core.mapping.Field;
+import org.springframework.data.couchbase.core.query.N1qlPrimaryIndexed;
+import org.springframework.data.couchbase.core.query.ViewIndexed;
+
+@Document
 public class User {
 
+    @Id
     int id;
+    @Field
     String name;
+    @Field
     String email;
+    @Field
     String address;
+    @Field
     String password;
 
     public User() {
