@@ -23,20 +23,13 @@ public class UserService {
     /* get all users */
     public List<User> getAllUsers()
     {
-        return users;
+        return repository.findAll();
     }
 
     /* get a user based on id */
     public User getUserByIdDummy(int id)
     {
-        /* replace with streams */
-        for (User temp: users ) {
-            if( temp.getId() == id ){
-                return  temp;
-            }
-        }
-
-        return null;
+        return repository.findAll().get(id);
     }
 
     /* checks if a user exits */
@@ -74,7 +67,6 @@ public class UserService {
     /* Adds a new user into the repo */
     public boolean addNewUser(User inputUser)
     {
-
         try
         {
             repository.saveAll(Stream.of(inputUser).collect(Collectors.toList()));

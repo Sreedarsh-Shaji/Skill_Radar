@@ -31,11 +31,11 @@ public class UserController {
 
     /* Adds a new dummy user into the system */
     @PostMapping("/add-user")
-    public ResponseEntity<Object> addDummyUser(@RequestBody User user) {
+    public ResponseEntity<Object> addDummyUser(@RequestBody User user)  {
         if (service.addNewUser(user)) {
-            return ResponseEntity.ok().build();
+            return new ResponseEntity<>( "Added Successfully" , HttpStatus.OK);
         } else {
-            return ResponseEntity.badRequest().body("Already exists");
+            return new ResponseEntity<>( "Already exists" , HttpStatus.OK);
         }
     }
 

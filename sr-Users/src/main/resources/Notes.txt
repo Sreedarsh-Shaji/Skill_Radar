@@ -1,0 +1,3 @@
+A query needs to be executed for couchbase to return the data
+
+CREATE PRIMARY INDEX `#primary` on `SkillRadar`

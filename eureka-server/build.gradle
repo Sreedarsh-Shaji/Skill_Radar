@@ -6,7 +6,7 @@ plugins {
 
 group = 'io.skillradar'
 version = '0.0.1-SNAPSHOT'
-sourceCompatibility = '16'
+sourceCompatibility = '11'
 
 repositories {
 	mavenCentral()
@@ -16,8 +16,10 @@ ext {
 	set('springCloudVersion', "2020.0.3")
 }
 
+
 dependencies {
 	implementation 'org.springframework.cloud:spring-cloud-starter-netflix-eureka-server'
+	//implementation 'org.springframework.cloud:spring-cloud-starter-netflix-zuul'
 	testImplementation 'org.springframework.boot:spring-boot-starter-test'
 
 	implementation 'javax.xml.bind:jaxb-api:2.3.1'
